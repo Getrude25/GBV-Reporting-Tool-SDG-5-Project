@@ -12,8 +12,7 @@ def create_app():
     db.init_app(app)
     jwt = JWTManager(app)
     CORS(app)  # Enable CORS for all routes
-    
-    # Register blueprints
+        # Register blueprints
     from routes.auth import auth_bp
     from routes.journal import journal_bp
     from routes.payment import payment_bp
@@ -33,6 +32,11 @@ def create_app():
     
     return app
 
+
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)  
+    import os
+    # ...existing code...    import os
+    # ...existing code...

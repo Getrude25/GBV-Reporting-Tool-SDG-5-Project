@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Features Demonstration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #6a11cb;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            margin: 25px 0 15px;
+        }
+        
+        section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .list-box {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6a11cb;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #eef2f7;
+        }
+        
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .media-box {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .full-width {
+            grid-column: span 2;
+        }
+        
+        fieldset {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #6a11cb;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .validation-demo {
+            background: #eef7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .validation-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .validation-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML5 Features Demonstration</h1>
+        <p>Showcasing modern HTML5 capabilities for web development</p>
+    </header>
+
+    <section id="lists-tables">
+        <h2>1. Lists and Tables for Content Organization</h2>
+        
+        <div class="list-container">
+            <div class="list-box">
+                <h3>Ordered List - HTML5 Features</h3>
+                <ol>
+                    <li>Semantic elements</li>
+                    <li>Multimedia support (audio & video)</li>
+                    <li>Enhanced form controls</li>
+                    <li>Canvas for graphics</li>
+                    <li>Local storage</li>
+                </ol>
+            </div>
+            
+            <div class="list-box">
+                <h3>Unordered List - Benefits</h3>
+                <ul>
+                    <li>Improved accessibility</li>
+                    <li>Better mobile support</li>
+                    <li>Reduced need for plugins</li>
+                    <li>Cleaner code structure</li>
+                    <li>Built-in validation</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3>HTML5 Semantic Elements Table</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>&lt;header&gt;</code></td>
+                    <td>Top section of page or content</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;nav&gt;</code></td>
+                    <td>Navigation links</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;main&gt;</code></td>
+                    <td>Primary content area</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;article&gt;</code></td>
+                    <td>Self-contained composition</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;footer&gt;</code></td>
+                    <td>Bottom section of page or content</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="media">
+        <h2>2. Embedded Media Content</h2>
+        
+        <div class="media-container">
+            <div class="media-box">
+                <h3>Image Example</h3>
+                <figure>
+                    <img src="https://via.placeholder.com/600x300/6a11cb/ffffff?text=HTML5+Image+Placeholder" alt="HTML5 example image">
+                    <figcaption>Modern web page structure using HTML5</figcaption>
+                </figure>
+            </div>
+            
+            <div class="media-box">
+                <h3>Video Example</h3>
+                <video controls>
+                    <source src="#" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Video demonstration of HTML5 features</p>
+            </div>
+            
+            <div class="media-box">
+                <h3>Audio Example</h3>
+                <audio controls>
+                    <source src="#" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>Audio explanation of HTML5 benefits</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="forms">
+        <h2>3. Structured HTML5 Forms</h2>
+        
+        <form id="registration" method="post" novalidate>
+            <fieldset class="full-width">
+                <legend>Personal Information</legend>
+                
+                <div>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div>
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+                
+                <div>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </div>
+            </fieldset>
+            
+            <fieldset class="full-width">
+                <legend>Account Details</legend>
+                
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required 
+                           pattern="[A-Za-z0-9]{5,}" 
+                           title="5 or more alphanumeric characters"
+                           placeholder="Choose a username">
+                </div>
+                
+                <div>
+                    <label for="pwd">Password:</label>
+                    <input type="password" id="pwd" name="pwd" required 
+                           minlength="8" 
+                           title="8 or more characters"
+                           placeholder="Create a strong password">
+                </div>
+                
+                <div>
+                    <label for="website">Website:</label>
+                    <input type="url" id="website" name="website" 
+                           placeholder="https://example.com">
+                </div>
+                
+                <div>
+                    <label for="color">Favorite Color:</label>
+                    <input type="color" id="color" name="color" value="#6a11cb">
+                </div>
+            </fieldset>
+            
+            <fieldset class="full-width">
+                <legend>Additional Information</legend>
+                
+                <div>
+                    <label for="experience">HTML5 Experience:</label>
+                    <input type="range" id="experience" name="experience" min="1" max="10" value="5">
+                </div>
+                
+                <div>
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                
+                <div>
+                    <label for="skills">Skills:</label>
+                    <select id="skills" name="skills" multiple>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JavaScript</option>
+                        <option value="accessibility">Accessibility</option>
+                        <option value="design">UI/UX Design</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+            <div class="full-width">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="validation">
+        <h2>4. Built-in Form Validation</h2>
+        
+        <div class="validation-demo">
+            <p>HTML5 provides built-in form validation without requiring JavaScript. Try submitting the form with invalid data to see the validation messages.</p>
+            
+            <div class="validation-examples">
+                <div class="validation-box">
+                    <h3>Required Field</h3>
+                    <input type="text" required placeholder="This field is required">
+                    <p><code>required</code> attribute</p>
+                </div>
+                
+                <div class="validation-box">
+                    <h3>Email Validation</h3>
+                    <input type="email" placeholder="Enter a valid email">
+                    <p><code>type="email"</code></p>
+                </div>
+                
+                <div class="validation-box">
+                    <h3>Pattern Matching</h3>
+                    <input type="text" pattern="[A-Za-z]{3}" title="3 letters only" placeholder="Enter 3 letters">
+                    <p><code>pattern</code> attribute</p>
+                </div>
+                
+                <div class="validation-box">
+                    <h3>Number Range</h3>
+                    <input type="number" min="1" max="100" placeholder="Enter number 1-100">
+                    <p><code>min</code> and <code>max</code> attributes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created as a demonstration of HTML5 features - Lists, Tables, Media, Forms, and Validation</p>
+        <p>This page uses semantic HTML5 elements and does not rely on JavaScript for validation</p>
+    </footer>
+</body>
+</html>
